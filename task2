@@ -1,0 +1,20 @@
+Q: WAQ to list all employee first name with salary greater than 50k ?
+Ans: SELECT a.employee_first_name, b.employee_salary FROM employee_details_table as a INNER JOIN employee_details_table as b ON a.employee_id = b.employee_id;
+
+Q: WAQ to list all employee last name with graduation percentile greater than 70% ?
+Ans: SELECT employee_last_name FROM employee_details_table WHERE Graduation_percentile > 70%;
+
+Q: WAQ to list all employee code name with graduation percentile less than 70% ?
+Ans: SELECT a.employee_code_name, b.Graduation_Percentile FROM employee_code_table as a INNER JOIN employee_details_table as b ON a.employee_id = b.employee_code WHERE Graduation_Percentile < 70%;
+
+Q: WAQ to list all employee’s full name that are not of domain Java?
+Ans: SELECT a.employee_first_name, a.employee_last_name, b.employee_domain FROM employee_details_table as a INNER JOIN employee_code_table as b ON a.employee_id = b.employee_code WHERE employee_domain NOT employee_domain = 'Java';
+
+Q: WAQ to list all employee_domain with sum of its salary?
+Ans: SELECT a.employee_domain, sum(b.employee_salary) FROM employee_code_table as a INNER JOIN employee_salary_table as b ON a.employee_code = b.employee_code GROUPBY employee_domain;
+
+Q: Write the above query again but dont include salaries which is less than 30k ?
+Ans: SELECT a.employee_domain, sum(b.employee_salary) FROM employee_code_table as a INNER JOIN employee_salary_table as b ON a.employee_code = b.employee_code WHERE employee_salary > 30k GROUPBY employee_domain;
+
+Q: WAQ to list all employee id which has not been assigned employee code ?
+Ans: SELECT employee_id FROM employee_salary_table WHERE employee_code IS NOT NULL;
