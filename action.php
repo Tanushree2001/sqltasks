@@ -24,30 +24,27 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
   $code_name = $_POST['code_name'];
   $domain = $_POST['domain'];
 
-
+// insertion query to enter value in employee_code_table
 $query1 = "INSERT INTO employee_code_table (employee_code , employee_code_name, employee_domain) VALUES ('$code','$code_name','$domain')";
 $res1 = mysqli_query($conn, $query1);
 if(!$res1){
   echo "Error inserting data into employee_code_table: " . mysqli_error($conn);
 }
 
+// insertion query to enter value in employee_salary_table
 $query2 = "INSERT INTO employee_salary_table (employee_id, employee_salary, employee_code) VALUES ('$employee_id','$salary','$code')";
 $res2 = mysqli_query($conn, $query2);
 if(!$res2){
   echo "Error inserting data into employee_salary_table: " . mysqli_error($conn);
 }
 
+// insertion query to enter value in employee_details_table
 $query3 = "INSERT INTO employee_details_table (employee_id, employee_first_name, employee_last_name ,Graduation_percentile) VALUES ('$employee_id','$first_name','$last_name','$grad_per')";
 $res3 = mysqli_query($conn, $query3);
 if(!$res3){
   echo "Error inserting data into employee_details_table: " . mysqli_error($conn);
 }
 
-if($res1 && $res2 && $res3){
-  echo "The record has been inserted successfully!<br>";
-}else{
-  echo "The record was not inserted successfully.";
-}
 }
 // Fetch and display contents of employee_code_table
 $query4 = "SELECT * FROM employee_code_table";
