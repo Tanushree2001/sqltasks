@@ -1,0 +1,20 @@
+Here we are creating three tables, that are team, match and venue
+Table 1 - Team table 
+    Match id (Primary key)
+    Team 1
+    Captain 1
+    Team 2
+    Captain 2
+Table 2- Venue table
+    Match id (Primary key)
+    Venue_match
+    Date_of_match
+Table 3 - Match table
+    Match id (Primary Key)
+    Toss_won
+    Match_won
+
+It consist of 3 tables with a common column name Match id and it is a primary key 
+so it will not contain any repeted value, and with the help of match id and joins 
+we can connect with all the table and we have seperated tables for every topic 
+like in team table we have the name of team and captain.
